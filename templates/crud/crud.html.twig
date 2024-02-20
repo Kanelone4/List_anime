@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anime_list{% endblock %}
+
+{% block body %}
+    <div class="container">
+       <h1>My animes list</h1>
+        {% for anime in animes %}
+           <p>{{anime.id}}- {{anime.titre}}</p><button class="btn btn-primary">
+           <a href="{{ path('app_editAnime', { id: anime.id})}}">modifier l'anime<a/>
+        </button><button class="btn btn-primary">
+           <a href="{{ path('app_suppAnime', { id: anime.id})}}">supprimer l'anime<a/>
+        </button>
+        {% endfor %}
+    </div>
+    <button class="btn btn-primary">
+        <a href="{{ path('app_newAnime')}}">Crée un anime<a/>
+    </button>
+<style>
+    
+</style>
+
+{% endblock %}
